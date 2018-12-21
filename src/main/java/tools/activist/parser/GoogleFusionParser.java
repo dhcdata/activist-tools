@@ -88,8 +88,7 @@ public class GoogleFusionParser {
   }
 
   public static GeocodingResult[] getGeocode(String address) {
-    Dotenv dotenv = Dotenv.load();
-    String GEOCODE_API_KEY = dotenv.get("GEOCODE_API_KEY");
+    String GEOCODE_API_KEY = Dotenv.load().get("GEOCODE_API_KEY");
     try {
       return GeocodingApi.geocode(new GeoApiContext.Builder().apiKey(GEOCODE_API_KEY).build(), address).await();
     } catch (Exception e) {
