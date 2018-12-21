@@ -1,21 +1,15 @@
 package tools.activist.model.floor;
 
-import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import tools.activist.parser.TloJournalParser;
-import tools.activist.handler.JsonHandler;
-import java.util.List;
-import org.jsoup.select.Elements;
-import org.jsoup.nodes.Element;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.regex.Pattern;
+import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import tools.activist.enums.Heading;
 
 public class JournalEntry {

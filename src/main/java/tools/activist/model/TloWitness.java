@@ -1,16 +1,13 @@
 package tools.activist.model;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.NavigableMap;
+import java.util.TreeMap;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.logging.Logger;
-import java.util.stream.IntStream;
-import java.util.TreeMap;
-import java.util.Map;
-import java.util.NavigableMap;
 
 public class TloWitness {
   private static final Logger log = Logger.getLogger(TloWitness.class.getName());

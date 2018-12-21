@@ -97,6 +97,12 @@
       <artifactId>google-api-services-iam</artifactId>
       <version>v1-rev212-1.22.0</version>
     </dependency>
+
+    <dependency>
+      <groupId>io.github.cdimascio</groupId>
+      <artifactId>java-dotenv</artifactId>
+      <version>3.1.7</version>
+    </dependency>
     <!-- Test Dependencies -->
     <dependency>
       <groupId>com.google.appengine</groupId>

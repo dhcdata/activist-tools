@@ -1,19 +1,20 @@
 package tools.activist.parser;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.jsoup.nodes.Element;
-import java.util.logging.Logger;
-import java.text.SimpleDateFormat;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
-import java.text.ParseException;
-import tools.activist.model.TloWitness;
+import java.util.logging.Logger;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import tools.activist.model.TloRegistration;
-import com.google.gson.GsonBuilder;
+import tools.activist.model.TloWitness;
 
 public class TloWitnessParser {
   private static final Logger log = Logger.getLogger(TloWitnessParser.class.getName());

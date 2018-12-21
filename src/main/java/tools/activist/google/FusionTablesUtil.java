@@ -1,5 +1,9 @@
 package tools.activist.google;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.logging.Logger;
+
 import com.google.api.client.googleapis.batch.BatchCallback;
 import com.google.api.client.googleapis.batch.BatchRequest;
 import com.google.api.client.googleapis.json.GoogleJsonErrorContainer;
@@ -11,14 +15,9 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
-import com.google.api.services.drive.model.Permission;
 import com.google.api.services.fusiontables.Fusiontables;
 import com.google.api.services.fusiontables.model.Sqlresponse;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import tools.activist.model.FusionResponse;
 
 /**

@@ -1,38 +1,26 @@
 package tools.activist.parser;
 
-import com.google.gson.Gson;
-import com.google.maps.model.LocationType;
-import com.google.gson.GsonBuilder;
-import com.google.maps.errors.ApiException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Logger;
+
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.Geometry;
 import com.google.maps.model.LatLng;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import io.github.cdimascio.dotenv.Dotenv;
 import tools.activist.google.FusionTablesUtil;
 import tools.activist.google.GoogleBatchClient;
 import tools.activist.model.FusionData;
 import tools.activist.model.FusionResponse;
-import java.lang.System;
-import java.util.List;
-import java.util.Arrays;
-import tools.activist.handler.JsonHandler;
 import tools.activist.model.RepresentResponse;
 
 // TODO: This is not a parser - it's a worker
 public class GoogleFusionParser {
   private static final Logger log = Logger.getLogger(GoogleFusionParser.class.getName());
-  private static String GEOCODE_API_KEY = "AIzaSyAFMFh9XzMmHAPfzVRa3HeS1WdcZkDgeSE";
   private static String address;
 
   public static RepresentResponse getStuff(String addr) {
@@ -100,6 +88,8 @@ public class GoogleFusionParser {
   }
 
   public static GeocodingResult[] getGeocode(String address) {
+    Dotenv dotenv = Dotenv.load();
+    String GEOCODE_API_KEY = dotenv.get("GEOCODE_API_KEY");
     try {
       return GeocodingApi.geocode(new GeoApiContext.Builder().apiKey(GEOCODE_API_KEY).build(), address).await();
     } catch (Exception e) {
