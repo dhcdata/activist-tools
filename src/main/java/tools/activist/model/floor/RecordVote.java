@@ -3,16 +3,15 @@ package tools.activist.model.floor;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 class RecordVote {
-  private static final Logger log = Logger.getLogger(RecordVote.class.getName());
   private RollCall rollCall;
   private Motion motion;
-  private String chair = new String();
-  private HashMap<String, Integer> count = new HashMap<String,Integer>();
+  // TODO: Fix Chair assignment
+  private String chair;
+  private HashMap<String, Integer> count = new HashMap<String, Integer>();
 
-  public class RollCall{
+  public class RollCall {
     private List<String> absEx = new ArrayList<String>();
     private List<String> abs = new ArrayList<String>();
     private List<String> yeas = new ArrayList<String>();
@@ -23,27 +22,27 @@ class RecordVote {
     public RollCall() {
     }
 
-    public void addAbsentExcused(String voter){
+    public void addAbsentExcused(String voter) {
       absEx.add(voter);
     }
 
-    public void addAbsent(String voter){
+    public void addAbsent(String voter) {
       abs.add(voter);
     }
 
-    public void addYea(String voter){
+    public void addYea(String voter) {
       yeas.add(voter);
     }
 
-    public void addNay(String voter){
+    public void addNay(String voter) {
       nays.add(voter);
     }
 
-    public void addPresent(String voter){
+    public void addPresent(String voter) {
       present.add(voter);
     }
 
-    public void addPnv(String voter){
+    public void addPnv(String voter) {
       pnv.add(voter);
     }
 
@@ -70,6 +69,7 @@ class RecordVote {
     public void setPnv(List<String> votes) {
       pnv = votes;
     }
+
     public Integer getPresent() {
       return present.size();
     }
@@ -84,6 +84,7 @@ class RecordVote {
       recordNumber = "";
       line = "";
     }
+
     public Motion(String rn, String line) {
       recordNumber = rn;
       this.line = line;
@@ -120,46 +121,59 @@ class RecordVote {
     this.motion = new Motion(record, motion);
     rollCall = new RollCall();
   }
-  public void addAbsentExcused(String voter){
+
+  public void addAbsentExcused(String voter) {
     rollCall.addAbsentExcused(voter);
   }
-  public void addAbsent(String voter){
+
+  public void addAbsent(String voter) {
     rollCall.addAbsent(voter);
   }
-  public void addYea(String voter){
+
+  public void addYea(String voter) {
     rollCall.addYea(voter);
   }
-  public void addNay(String voter){
+
+  public void addNay(String voter) {
     rollCall.addNay(voter);
   }
-  public void addPresent(String voter){
+
+  public void addPresent(String voter) {
     rollCall.addPresent(voter);
   }
-  public void addPnv(String voter){
+
+  public void addPnv(String voter) {
     rollCall.addPnv(voter);
   }
-  public void addChair(String voter){
+
+  public void addChair(String voter) {
     chair = voter;
   }
 
   public void setAbsentExcused(List<String> votes) {
     rollCall.setAbsentExcused(votes);
   }
+
   public void setAbsent(List<String> votes) {
     rollCall.setAbsent(votes);
   }
+
   public void setYea(List<String> votes) {
     rollCall.setYea(votes);
   }
+
   public void setNay(List<String> votes) {
     rollCall.setNay(votes);
   }
+
   public void setPresent(List<String> votes) {
     rollCall.setPresent(votes);
   }
+
   public void setPnv(List<String> votes) {
     rollCall.setPnv(votes);
   }
+
   public void setChair(String chair) {
     this.chair = chair;
   }
@@ -167,6 +181,7 @@ class RecordVote {
   public void setMotion(String rv, String line) {
     this.motion = new Motion(rv, line);
   }
+
   public void setCount(String position, Integer cnt) {
     count.put(position, cnt);
   }
@@ -181,5 +196,9 @@ class RecordVote {
 
   public String getMotionLine() {
     return motion.getLine();
+  }
+
+  public String getChair() {
+    return this.chair;
   }
 }

@@ -6,10 +6,8 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import com.google.api.services.fusiontables.model.Sqlresponse;
 import com.google.api.client.googleapis.json.GoogleJsonErrorContainer;
-import java.util.logging.Logger;
 
 public class FusionResponse {
-  private static final Logger log = Logger.getLogger(FusionResponse.class.getName());
   private List<String> columns;
   private String kind;
   private List<List<Object>> rows;
@@ -17,26 +15,40 @@ public class FusionResponse {
 
   public FusionResponse() {
     this.columns = new ArrayList<String>();
-    this.kind = "";
+    this.setKind("");
     this.rows = new ArrayList<List<Object>>();
+  }
+
+  /**
+   * @return the kind
+   */
+  public String getKind() {
+    return kind;
+  }
+
+  /**
+   * @param kind the kind to set
+   */
+  public void setKind(String kind) {
+    this.kind = kind;
   }
 
   public FusionResponse(Sqlresponse s) {
     this.columns = s.getColumns();
-    this.kind = s.getKind();
+    this.setKind(s.getKind());
     this.rows = s.getRows();
   }
 
-  public FusionResponse(List columns, String kind, List<List<Object>> rows) {
+  public FusionResponse(List<String> columns, String kind, List<List<Object>> rows) {
     this.columns = columns;
-    this.kind = kind;
+    this.setKind(kind);
     this.rows = rows;
   }
 
   public FusionResponse(GoogleJsonErrorContainer e) {
     this.error = e.getError().getMessage();
     this.columns = new ArrayList<>();
-    this.kind = "";
+    this.setKind("");
     this.rows = new ArrayList<>();
   }
 

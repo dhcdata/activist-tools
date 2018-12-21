@@ -33,15 +33,15 @@ public class GoogleFusionParser {
     if (geocode != null) {
       getFusionData().forEach(l -> FusionTablesUtil
           .fusionQueue(query(l, geocode[0].geometry.location, distance(geocode[0].geometry)), hm, l.getName()));
-      GoogleBatchClient.getInstance().execute(); // TODO, might not want a single instane - race condition between
-                                                 // threads?
+      GoogleBatchClient.execute(); // TODO, might not want a single instane - race condition between
+                                   // threads?
       out = new RepresentResponse(getReturnedResults(hm), getDebug(geocode, address, startTime));
     }
     return out == null ? null : out;
   }
 
   public static HashMap<String, Object> getDebug(GeocodingResult[] geocode, String address, long startTime) {
-    HashMap debug = new HashMap();
+    HashMap<String, Object> debug = new HashMap<String, Object>();
     debug.put("location", geocode);
     debug.put("submittedAddress", address);
     debug.put("performance", ((double) (System.nanoTime() - startTime) / 1000000.0) + " ms");

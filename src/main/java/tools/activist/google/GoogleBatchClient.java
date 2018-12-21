@@ -1,25 +1,23 @@
 package tools.activist.google;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.batch.BatchCallback;
 import com.google.api.client.googleapis.batch.BatchRequest;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.HttpRequest;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import com.google.cloud.MonitoredResource;
+import com.google.api.client.http.HttpTransport;
 // import com.google.cloud.logging.LogEntry;
 // import com.google.cloud.logging.Logging;
 // import com.google.cloud.logging.LoggingOptions;
 // import com.google.cloud.logging.Payload.StringPayload;
 import com.google.api.services.drive.DriveScopes;
-import java.util.ArrayList;
 import com.google.api.services.iam.v1.IamScopes;
 
 public class GoogleBatchClient {
@@ -28,7 +26,6 @@ public class GoogleBatchClient {
   private static final Logger log = Logger.getLogger(GoogleBatchClient.class.getName());
   // private static final Logging log =
   // LoggingOptions.getDefaultInstance().getService();
-  private static final String APPLICATION_NAME = "tools.political.googleClient";
   private static HttpTransport httpTransport = transport();
   private static GoogleCredential credential = credential();
   private static BatchRequest batch = new BatchRequest(httpTransport, credential);

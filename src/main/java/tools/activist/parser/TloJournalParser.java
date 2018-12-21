@@ -66,7 +66,6 @@ public class TloJournalParser {
 
   private static boolean isHeader(Element line) {
     boolean isH = false;
-    boolean print = false;
     for (Element c : line.children()) {
       // log.info("isH: " + c.ownText());
       if (c.tagName() == "b" && c.ownText().startsWith("Amendment No."))

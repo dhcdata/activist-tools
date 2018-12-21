@@ -1,7 +1,6 @@
 package tools.activist.servlet;
 
 import com.iheartradio.m3u8.data.Playlist;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +12,6 @@ import tools.activist.parser.GranicusParser;
 @SuppressWarnings("serial")
 @WebServlet(name = "LegePlaylist", value = "/legePlaylist.m3u8")
 public class LegePlaylist extends HttpServlet {
-  private static final Logger log = Logger.getLogger(LegePlaylist.class.getName());
 
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {

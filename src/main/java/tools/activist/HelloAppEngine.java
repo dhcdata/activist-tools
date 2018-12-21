@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "HelloAppEngine", value = "/hello")
 public class HelloAppEngine extends HttpServlet {
 
+  private static final long serialVersionUID = 1L;
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 

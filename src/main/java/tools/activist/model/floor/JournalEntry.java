@@ -29,25 +29,67 @@ public class JournalEntry {
     this.type = type;
     // this.data = data;
     this.portion = portion;
-    this.journalEntryNo = journalEntryNo;
-    this.paragraphs = paragraphs;
+    this.setJournalEntryNo(journalEntryNo);
+    this.setParagraphs(paragraphs);
     this.print = print;
+  }
+
+  /**
+   * @return the fParagraphs
+   */
+  public Integer getfParagraphs() {
+    return fParagraphs;
+  }
+
+  /**
+   * @param fParagraphs the fParagraphs to set
+   */
+  public void setfParagraphs(Integer fParagraphs) {
+    this.fParagraphs = fParagraphs;
+  }
+
+  /**
+   * @return the paragraphs
+   */
+  public Integer getParagraphs() {
+    return paragraphs;
+  }
+
+  /**
+   * @param paragraphs the paragraphs to set
+   */
+  public void setParagraphs(Integer paragraphs) {
+    this.paragraphs = paragraphs;
+  }
+
+  /**
+   * @return the journalEntryNo
+   */
+  public Integer getJournalEntryNo() {
+    return journalEntryNo;
+  }
+
+  /**
+   * @param journalEntryNo the journalEntryNo to set
+   */
+  public void setJournalEntryNo(Integer journalEntryNo) {
+    this.journalEntryNo = journalEntryNo;
   }
 
   public JournalEntry(String type, Elements blocks, String portion, Integer journalEntryNo, boolean print) {
     this.data = new ArrayList<String>();
     this.type = type;
-    this.paragraphs = blocks.size();
+    this.setParagraphs(blocks.size());
     recordVote(blocks);
     for (Element block : blocks) {
       this.data.add(block.text());
     }
     // this.data = blocks.text();
     this.portion = portion;
-    this.journalEntryNo = journalEntryNo;
+    this.setJournalEntryNo(journalEntryNo);
     this.print = print;
     processType();
-    this.fParagraphs = blocks.size();
+    this.setfParagraphs(blocks.size());
   }
 
   public String getType() {
@@ -92,7 +134,6 @@ public class JournalEntry {
         removeItr = true;
       }
 
-      String position = null;
       if (block.text().startsWith("Yeas — ")) {
         addVote(block, "yeas");
         removeItr = true;

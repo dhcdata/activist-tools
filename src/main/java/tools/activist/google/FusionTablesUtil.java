@@ -9,7 +9,7 @@ import com.google.api.client.googleapis.batch.BatchRequest;
 import com.google.api.client.googleapis.json.GoogleJsonErrorContainer;
 import com.google.api.client.http.HttpHeaders;
 import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpTransport;
+// import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.drive.Drive;
@@ -35,16 +35,16 @@ public class FusionTablesUtil {
   private static final String APPLICATION_NAME = "tools.political.fusiontables";
 
   /** Global instance of the HTTP transport. */
-  private static HttpTransport httpTransport;
+  // private static HttpTransport httpTransport;
 
   /** Global instance of the JSON factory. */
   private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
   private static GoogleBatchClient gbc = GoogleBatchClient.getInstance();
-  private static Fusiontables fusiontables = new Fusiontables.Builder(gbc.getTransport(), JSON_FACTORY,
-      gbc.getCredential()).setApplicationName(APPLICATION_NAME).build();
+  private static Fusiontables fusiontables = new Fusiontables.Builder(GoogleBatchClient.getTransport(), JSON_FACTORY,
+      GoogleBatchClient.getCredential()).setApplicationName(APPLICATION_NAME).build();
 
-  private static Drive driveService = new Drive.Builder(gbc.getTransport(), JSON_FACTORY, gbc.getCredential())
-      .setApplicationName(APPLICATION_NAME).build();
+  private static Drive driveService = new Drive.Builder(GoogleBatchClient.getTransport(), JSON_FACTORY,
+      GoogleBatchClient.getCredential()).setApplicationName(APPLICATION_NAME).build();
 
   public static <T, E> BatchRequest fusionQueue(String sql, HashMap<String, FusionResponse> queueResponseMap,
       String key) {
@@ -78,8 +78,8 @@ public class FusionTablesUtil {
 
   }
 
-  private static BatchCallback<Sqlresponse, GoogleJsonErrorContainer> fusionCallback(HashMap queueResponseMap,
-      String key) {
+  private static BatchCallback<Sqlresponse, GoogleJsonErrorContainer> fusionCallback(
+      HashMap<String, FusionResponse> queueResponseMap, String key) {
     return new BatchCallback<Sqlresponse, GoogleJsonErrorContainer>() {
       public void onSuccess(Sqlresponse sqlResp, HttpHeaders responseHeaders) {
         queueResponseMap.put(key, new FusionResponse(sqlResp));

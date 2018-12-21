@@ -35,6 +35,20 @@ public class TloWitnessParser {
     return "http://" + DOMAIN + PATH + session + DIR + meeting + ".HTM";
   }
 
+  /**
+   * @return the currentWitness
+   */
+  public static String getCurrentWitness() {
+    return currentWitness;
+  }
+
+  /**
+   * @param currentWitness the currentWitness to set
+   */
+  public static void setCurrentWitness(String currentWitness) {
+    TloWitnessParser.currentWitness = currentWitness;
+  }
+
   public static List<TloRegistration> getStuff(String meeting, String session) {
     currentCommitteeCode = meeting.substring(0, 4);
     meetingDate = null;
@@ -66,8 +80,6 @@ public class TloWitnessParser {
       String[] a = line.html().split(" ", 2);
       Elements children = line.children();
       int begSpace = a[0].split("&nbsp").length;
-      int lineSpace = 0;
-      boolean begin = true;
       String lineText = a[1];
 
       if (begSpace == 12) {

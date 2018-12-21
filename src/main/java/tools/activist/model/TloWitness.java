@@ -5,12 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TloWitness {
-  private static final Logger log = Logger.getLogger(TloWitness.class.getName());
   private String fullName;
   private String firstName;
   private String lastName;
@@ -26,11 +24,39 @@ public class TloWitness {
     this.fullName = fullName;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.location = location;
+    this.setLocation(location);
     this.organization = organization;
     this.city = city;
     this.state = state;
     this.title = title;
+  }
+
+  /**
+   * @return the other
+   */
+  public String getOther() {
+    return other;
+  }
+
+  /**
+   * @param other the other to set
+   */
+  public void setOther(String other) {
+    this.other = other;
+  }
+
+  /**
+   * @return the location
+   */
+  public String getLocation() {
+    return location;
+  }
+
+  /**
+   * @param location the location to set
+   */
+  public void setLocation(String location) {
+    this.location = location;
   }
 
   public TloWitness(String fullString) {
@@ -61,7 +87,7 @@ public class TloWitness {
       }
 
     }
-    other = remainingChars(finalString);
+    setOther(remainingChars(finalString));
   }
 
   private String remainingChars(String initialString) {

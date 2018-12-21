@@ -1,7 +1,7 @@
 package tools.activist.model.floor;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import org.jsoup.nodes.Element;
 
 class HouseCalendar {

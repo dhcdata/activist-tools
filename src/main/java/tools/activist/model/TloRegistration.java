@@ -1,10 +1,9 @@
 package tools.activist.model;
 
 import java.util.Date;
-import java.util.logging.Logger;
 
 public class TloRegistration {
-  private static final Logger log = Logger.getLogger(TloRegistration.class.getName());
+
   private TloWitness witness;
   private String committee;
   private String committeeCode;
