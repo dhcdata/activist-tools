@@ -15,7 +15,7 @@ public class IdentityUtils {
    * {@code null} or blank, the application will log a warning. Suggested format
    * is "MyCompany-ProductName/1.0".
    */
-  private static final String APPLICATION_NAME = "tools.political.google.IdentityUtils";
+  private static final String APPLICATION_NAME = "tools.activist.google.IdentityUtils";
 
   /** Global instance of the HTTP transport. */
   // private static HttpTransport httpTransport;

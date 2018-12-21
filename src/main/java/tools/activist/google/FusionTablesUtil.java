@@ -32,7 +32,7 @@ public class FusionTablesUtil {
    * {@code null} or blank, the application will log a warning. Suggested format
    * is "MyCompany-ProductName/1.0".
    */
-  private static final String APPLICATION_NAME = "tools.political.fusiontables";
+  private static final String APPLICATION_NAME = "tools.activist.fusiontables";
 
   /** Global instance of the HTTP transport. */
   // private static HttpTransport httpTransport;

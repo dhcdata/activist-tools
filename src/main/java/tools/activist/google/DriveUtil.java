@@ -13,7 +13,7 @@ import com.google.api.services.drive.model.FileList;
 public class DriveUtil {
   static final Logger log = Logger.getLogger(DriveUtil.class.getName());
 
-  private static final String APPLICATION_NAME = "tools.political.google.drive";
+  private static final String APPLICATION_NAME = "tools.activist.google.drive";
 
   /** Global instance of the HTTP transport. */
   // private static HttpTransport httpTransport;
