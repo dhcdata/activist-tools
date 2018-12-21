@@ -4,7 +4,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+
 
   <groupId>tools.activist</groupId>
   <artifactId>texas</artifactId>
@@ -18,7 +18,11 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <archiveClasses>true</archiveClasses>
+    <app.version>1-0-0</app.version>
+
   </properties>
+
+  <version>${app.version}</version>
 
   <prerequisites>
     <maven>3.5</maven>
@@ -153,6 +157,9 @@
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
         <version>1.9.71</version>
+        <configuration>
+          <version>${app.version}</version>
+        </configuration>
       </plugin>
 
       <plugin>
