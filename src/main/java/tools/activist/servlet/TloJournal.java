@@ -24,7 +24,7 @@ public class TloJournal extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
     // TODO: Make session a global property somewhere
-    String DEFAULT_SESSION = Dotenv.load().get("DEFAULT_SESSION");
+    String DEFAULT_SESSION = Dotenv.configure().filename("env").load().get("DEFAULT_SESSION");
     String session = req.getParameter("session") != null ? req.getParameter("session") : DEFAULT_SESSION;
     log.info("Session: " + session);
     List<JournalEntry> out = TloJournalParser.getStuff(req.getParameter("chamber"), req.getParameter("journalId"),
